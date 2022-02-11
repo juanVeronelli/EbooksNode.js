@@ -71,11 +71,12 @@ const getLibrary = async () => {
     let elements = Array.from(document.querySelectorAll('.remove'));
     for(let e in elements){
         elements[e].addEventListener('click', ()=>{
+            alertdeletesuccess()
             deleteBooks(elements[e].id, elements[e])
         });
     }
 }
-
+            
 function deleteBooks(id, element){
     let dad = element.parentNode;
     father.removeChild(dad);
@@ -104,10 +105,39 @@ async function ifexists(id){
     const index = Object.values(data).findIndex( (element) => element.id === parseInt(id));
     return index
 }
-
+function animateAlertErrBook(){
+    swal({
+        title: "Error",
+        text: "The book is already in your library",
+        icon: "error",
+        button: false,
+    });
+    setTimeout(()=>{
+        swal.close()
+    },1500)  
+}
 
 function animateAlertAddBook(){
-    
+    swal({
+        title: "successfully added!",
+        icon: "success",
+        button: false,
+    });
+    setTimeout(()=>{
+        swal.close()
+    },1500)
+}
+
+
+function alertdeletesuccess(){
+    swal({
+        title: "removed successfully!",
+        icon: "success",
+        button: false,
+    });
+    setTimeout(()=>{
+        swal.close()
+    },1500)
 }
 
 main();

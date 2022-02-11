@@ -24,6 +24,7 @@ function openToClosed(){
 function normalize(){
     father.style.display = 'none'
     for(let i in li){
+        li[i].firstChild.style.cursor = 'pointer'
         li[i].style.display = 'flex'
         li[i].style.alignItems = 'center'
         li[i].firstChild.style.fontSize = '150px'
