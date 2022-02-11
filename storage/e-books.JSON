@@ -1,0 +1,59 @@
+{
+"ebooks": [{
+    "id": 1,
+    "title": "Harry Potter y la Piedra Filosofal",
+    "author": "Joanne Rowling​",
+    "date": "1997",
+    "price": "$3.99",
+    "image": "assets/Harry_Potter_y_la_Piedra_Filosofal.png"
+    },{
+        "id": 2,
+        "title":"Harry Potter y la Cámara Secreta ",
+        "author":"Joanne Rowling",
+        "date": "1998",
+        "price": "$5.99",
+        "image": "assets/Harry_Potter_y_la_Camara_Secreta.png"
+    },{
+        "id": 3,
+        "title":"Harry Potter y el Prisionero de Azkaban ",
+        "author":"Joanne Rowling",
+        "date": "1999",
+        "price": "$7.99",
+        "image": "assets/Harry_Potter_y_el_prisionero_de_Azkaban.png"
+    },{
+        "id": 4,
+        "title":"Harry Potter y el Cáliz de Fuego",
+        "author":"Joanne Rowling",
+        "date": "2000",
+        "price": "$9.99",
+        "image": "assets/calizDeFuego.png"
+    },{
+        "id": 5,
+        "title":"Harry Potter y la Orden del Fénix",
+        "author":"Joanne Rowling",
+        "date": "2003",
+        "price": "$10.99",
+        "image": "assets/fenixOrder.png"
+    },{
+        "id": 6,
+        "title":"Harry Potter y el Misterio del Príncipe ",
+        "author":"Joanne Rowling",
+        "date": "2005",
+        "price": "$13.99",
+        "image": "assets/principe.png"
+    },{
+        "id": 7,
+        "title":"Harry Potter y las Reliquias de la Muerte",
+        "author":"Joanne Rowling",
+        "date": "2007",
+        "price": "$15.99",
+        "image": "assets/Harry_Potter_y_las_Reliquias_de_la_Muerte.jpg"
+    },{
+        "id": 8,
+        "title":"Harry Potter y el legado maldito ",
+        "author":"Joanne Rowling",
+        "date": "2016",
+        "price": "$5.99",
+        "image": "assets/legado.jpg"
+    }]
+}
