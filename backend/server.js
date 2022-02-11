@@ -31,7 +31,9 @@ app.post('/:id', async (req, res) => {
     const response = await fetch('http://192.168.0.11:8080/e-books.JSON')
     const data = await response.json()
     const templates = await addToLibrary(req.params.id, data);
-    library.library.push(templates);
+    for(let i in templates){
+        library.library.push(templates[i]);
+    }
 })
 
 app.get('/library', (req,res)=>{
@@ -41,12 +43,8 @@ app.get('/library', (req,res)=>{
 })
 
 app.delete('/:ide', (req,res)=>{
-    const num = deleteToLibrary(req.params.ide, library);
-    if(library.library.length >= 1){
-        library.library[0].slice(num, 1)
-    }else{
-        console.log(' NO puedo eliminar un elemento')
-    }
+    const num = deleteToLibrary(req.params.ide, library.library);
+    library.library.splice(num, 1);
 })
 
 app.listen(port, ()=>{

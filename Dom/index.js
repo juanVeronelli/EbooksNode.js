@@ -42,7 +42,7 @@ function main(){
 
             if(!(document.querySelectorAll('.navegation__list__cards__Card').length > 1)){
                 data.forEach(libro=>{
-                    father.insertAdjacentHTML('beforeend', libro);
+                    father.insertAdjacentHTML('beforeend', libro.template);
                 })
                 const btns = Array.from(document.querySelectorAll('.add'));
                 post(btns);
@@ -66,9 +66,9 @@ const getLibrary = async () => {
     const response = await fetch('http://localhost:3000/library?books=true');
     const data = await response.json();
     Object.values(data).forEach(book => {
-        father.insertAdjacentHTML('beforeend', book[0].template);
+        father.insertAdjacentHTML('beforeend', book.template);
     })
-    let elements = document.querySelectorAll('.remove');
+    let elements = Array.from(document.querySelectorAll('.remove'));
     for(let e in elements){
         elements[e].addEventListener('click', ()=>{
             deleteBooks(elements[e].id, elements[e])
@@ -86,12 +86,29 @@ const post = async (btns) => {
     for(let i = 0; i<= btns.length; i++){
         btns[i].addEventListener('click', async function(){
             const elementFather = btns[i].parentNode;
-            fetch(`http://localhost:3000/${elementFather.id}`,{method:"POST"})
+            let exist = await ifexists(elementFather.id);
+            if(exist === -1){
+                animateAlertAddBook()
+                fetch(`http://localhost:3000/${elementFather.id}`,{method:"POST"})
+            }else{
+                animateAlertErrBook()
+            }
         })
     }
 
 }
 
+async function ifexists(id){
+    const response = await fetch('http://localhost:3000/library?books=true', {method:"GET"})
+    const data = await response.json();
+    const index = Object.values(data).findIndex( (element) => element.id === parseInt(id));
+    return index
+}
+
+
+function animateAlertAddBook(){
+    
+}
 
 main();
 

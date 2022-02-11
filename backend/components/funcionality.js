@@ -9,20 +9,22 @@ class ebooks {
 
     }
     getTemplate(){
-        const templateEbook = `
+        const templateEbook = {
+        "id": this.id,
+        "template":`
         <div id="${this.id}" class="navegation__list__cards__Card">
             <img src=${this.image} alt="">
             <h4> ${this.title} </h4>
             <span> ${this.price} </span>
             <button id="${this.id}" class="add"> Add to library </button>
         </div>
-        `
+        `}
         return templateEbook;
     }
     getTemplateLibrary(){
         const templateLibrary = {
-            id:this.id,
-            template:`
+            "id":this.id,
+            "template":`
             <div id="${this.id}" class="navegation__list__cards__Card">
                 <img src=${this.image} alt="">
                 <h4> ${this.title} </h4>
@@ -42,6 +44,7 @@ const getEbooks = async (data) => {
 }
 
 
+
 const addToLibrary = async (id, data) => {
     var templates = []
     const object = Object.values(data.ebooks).filter((books)=> {return books.id == id });
@@ -50,10 +53,8 @@ const addToLibrary = async (id, data) => {
 }
 
 const deleteToLibrary = (param, data) => {
-    const index = Object.values(data.library[0]).filter((element)=>{return element.id == param});
-    console.log(data.library[0])
-    const num = data.library[0].findIndex((object)=> object === index[0]);
-    return num;
+    const index = Object.values(data).findIndex( (element) => element.id === parseInt(param));
+    return index
 }
 
 module.exports = {
